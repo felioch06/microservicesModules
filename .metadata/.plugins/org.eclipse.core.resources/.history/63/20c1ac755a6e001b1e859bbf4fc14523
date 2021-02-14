@@ -1,0 +1,5 @@
+package com.app.categoria.dao;
+
+public class CategoriaDao {
+
+}

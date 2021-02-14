@@ -1,0 +1,5 @@
+package com.app.producto.entities;
+
+public class Producto {
+
+}

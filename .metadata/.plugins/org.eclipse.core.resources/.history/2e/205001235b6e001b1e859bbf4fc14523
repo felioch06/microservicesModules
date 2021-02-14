@@ -1,0 +1,23 @@
+package com.app.categoria.clientes;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.app.categoria.entities.Categoria;
+
+@FeignClient(name = "servicio-categoria")
+public class CategoriaDao {
+
+	@GetMapping("")
+	public List<Categoria> findAll();
+	
+	@GetMapping("/{id}")
+	public Optional<Categoria> findById(@PathVariable Long id);
+}
+
+

@@ -1,0 +1,21 @@
+package com.app.catalogo.client;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.app.catalogo.entities.Categoria;
+
+@FeignClient(name = "servicio-categoria")
+public interface CategoriaClient {
+
+	@GetMapping("")
+	public List<Categoria> listar();
+	
+	@GetMapping("/{id}")
+	public Optional<Categoria> ver(@PathVariable Long id);
+}
+

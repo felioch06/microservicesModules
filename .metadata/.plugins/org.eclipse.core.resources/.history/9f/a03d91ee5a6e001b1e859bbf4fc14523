@@ -1,0 +1,12 @@
+package com.app.categoria.services;
+
+import java.util.List;
+
+import com.app.items.models.Items;
+
+public interface IServiceCategoria {
+
+	public List<Items> findAll();
+	
+	public Items findById(Long id, Integer cantidad);
+}

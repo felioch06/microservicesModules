@@ -1,0 +1,13 @@
+package com.app.catalogo.services;
+
+import java.util.List;
+
+import com.app.catalogo.models.Catalogo;
+
+
+public interface IServiceCatalogo {
+
+	public List<Catalogo> findAll();
+	
+	public Catalogo findById(Long id, Integer cantidad);
+}

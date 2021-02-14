@@ -1,0 +1,34 @@
+package com.app.catalogo.services;
+
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+
+import com.app.catalogo.clientes.CatalogoClients;
+import com.app.catalogo.models.Categoria;
+
+@Service
+@Primary
+public class ServiceCategoria implements IServiceCategoria{
+
+	@Autowired
+	private CatalogoClients clientFeign;
+	
+	@Override
+	public List<Categoria> findAll(){
+		return clientFeign.listar().stream().map(p -> new Categoria(p,1)).collect(Collectors.toList());
+	}
+	
+	@Override
+	public Categoria findById(Long id, Integer cantidad){
+		return new Categoria(clientFeign.ver(id), cantidad);
+	}
+	
+}
+
+
+

@@ -1,0 +1,43 @@
+package com.app.catalogo.services;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.catalogo.client.CategoriaClient;
+import com.app.catalogo.dao.ICatalogoDao;
+import com.app.catalogo.entities.Catalogo;
+
+@Service
+@Primary
+public class CatalogoServices implements ICatalogoServices{
+
+	@Autowired
+	private ICatalogoDao catalogoDao;
+	
+	private CategoriaClient categoriaClient;
+	
+	@Override
+	public List<Catalogo> findAll(){
+		return categoriaClient.listar().stream().map(p -> new Items(p,1)).collect(Collectors.toList());
+	}
+	
+	@Transactional(readOnly = true)
+	public List<Catalogo> findAllCat(){
+		return (List<Catalogo>) catalogoDao.findAll();
+	}
+	
+	@Transactional(readOnly = true)
+	public Optional<Catalogo> findById(Long id){
+		return catalogoDao.findById(id);
+	}
+	
+	@Transactional(readOnly = false)
+	public Catalogo save(Catalogo dependencia){
+		return catalogoDao.save(dependencia);
+	}
+}

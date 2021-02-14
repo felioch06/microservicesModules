@@ -1,0 +1,26 @@
+1613260539585	Delete element
+1613260581742	Rename package 'com.app.producto'
+1613260600321	Rename type 'Producto'
+1613261188088	Rename type 'MicroservicesProductoApplication'
+1613264041538	Delete elements
+1613264070073	Rename package 'com.app.categoria'
+1613264091339	Rename type 'MicroservicesCategoriaApplication'
+1613264105853	Rename type 'CategoriaClients'
+1613264199525	Rename type 'CategoriaController'
+1613264219952	Rename type 'Categoria'
+1613264237211	Rename type 'IServiceCategoria'
+1613264255297	Rename type 'ServiceCategoria'
+1613310234673	Delete elements
+1613310272051	Rename package 'com.app.producto'
+1613310291011	Rename type 'MicroservicesProductoApplication'
+1613310307267	Rename type 'ProductController'
+1613310321210	Rename type 'IProductoDao'
+1613310328560	Rename type 'Producto'
+1613310343665	Rename type 'IProductoServices'
+1613310351792	Rename type 'ProductoServices'
+1613314385183	Copy compilation unit
+1613314405472	Rename type 'Productos'
+1613317754677	Copy compilation units
+1613318321146	Delete elements
+1613318839100	Delete element
+1613320441326	Rename type 'CategoriaClient'

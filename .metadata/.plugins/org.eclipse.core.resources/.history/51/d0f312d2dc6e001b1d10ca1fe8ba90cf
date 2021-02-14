@@ -1,0 +1,32 @@
+package com.app.catalogo.services;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.catalogo.dao.ICatalogoDao;
+import com.app.catalogo.entities.Catalogo;
+
+@Service
+public class CatalogoServicesFeign implements ICatalogoServices{
+
+	@Autowired
+	private ICatalogoDao catalogoDao;
+	
+	@Transactional(readOnly = true)
+	public List<Catalogo> findAll(){
+		return (List<Catalogo>) catalogoDao.findAll();
+	}
+	
+	@Transactional(readOnly = true)
+	public Optional<Catalogo> findById(Long id){
+		return catalogoDao.findById(id);
+	}
+	
+	@Transactional(readOnly = false)
+	public Catalogo save(Catalogo dependencia){
+		return catalogoDao.save(dependencia);
+	}
+}

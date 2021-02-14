@@ -1,0 +1,46 @@
+package com.app.catalogo.entities;
+
+import java.io.Serializable; 
+import javax.persistence.Column; 
+import javax.persistence.Entity; 
+import javax.persistence.GeneratedValue; 
+import javax.persistence.GenerationType; 
+import javax.persistence.Id; 
+import javax.persistence.Table; 
+
+@Entity 
+@Table( name = "CATEGORIA" ) 
+public class Categoria implements Serializable{ 
+	private static final long serialversionUID = 1L; 
+	
+	@Id
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column( name = "ID_CATEGORIA_PK", nullable = false )
+	private Long id;
+
+	@Column( name = "FK_CATALOGO", nullable = false) 
+	private Long fk_catalogo;
+	
+	public Long getFk_catalogo() {
+		return fk_catalogo;
+	}
+
+	public void setFk_catalogo(Long fk_catalogo) {
+		this.fk_catalogo = fk_catalogo;
+	}
+
+	public Categoria() {
+	}
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this. id = id;
+	}
+	
+
+	@Override public String toString() {
+		return "Producto [id=" + id + "]";
+	}
+}

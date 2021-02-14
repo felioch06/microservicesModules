@@ -1,0 +1,5 @@
+package com.app.catalogo.client;
+
+public class CategoriaClient {
+
+}

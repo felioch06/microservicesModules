@@ -1,0 +1,25 @@
+package com.app.catalogo.services;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.app.catalogo.client.CategoriaClient;
+import com.app.catalogo.dao.ICatalogoDao;
+import com.app.catalogo.entities.Catalogo;
+
+@Service
+public class CatalogoServicesFeign implements ICatalogoServicesFeign{
+
+	@Autowired
+	private CategoriaClient categoriaClient;
+	
+	@Override
+	public List<Catalogo> findAll(){
+		return categoriaClient.listar().stream().map(p -> new Items(p,1)).collect(Collectors.toList());
+	}
+
+}
